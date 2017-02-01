@@ -1,10 +1,10 @@
-import { IhubPage } from './app.po';
+import { TmpPage } from './app.po';
 
-describe('ihub App', function() {
-  let page: IhubPage;
+describe('tmp App', function() {
+  let page: TmpPage;
 
   beforeEach(() => {
-    page = new IhubPage();
+    page = new TmpPage();
   });
 
   it('should display message saying app works', () => {
