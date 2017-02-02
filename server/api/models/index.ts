@@ -1,13 +1,12 @@
 import * as cls from "continuation-local-storage";
 import * as fs from "fs";
 import * as path from "path";
-import * as SequelizeStatic from "sequelize";
 import {configs} from "../../config/configs";
 import {logger} from "../../utils/logger";
 import {Sequelize} from "sequelize";
 
 export interface SequelizeModels {
-  Product: SequelizeStatic.Model<ProductInstance, ProductAttributes>;
+  Product: Sequelize.Model<UserInstance, UserAttributes>;
 }
 
 class Database {
@@ -23,8 +22,8 @@ class Database {
       dbConfig.logging = logger.info;
     }
 
-    (SequelizeStatic as any).cls = cls.createNamespace("sequelize-transaction");
-    this._sequelize = new SequelizeStatic(dbConfig.database, dbConfig.username,
+    (Sequelize as any).cls = cls.createNamespace("sequelize-transaction");
+    this._sequelize = new Sequelize(dbConfig.database, dbConfig.username,
       dbConfig.password, dbConfig);
     this._models = ({} as any);
 
