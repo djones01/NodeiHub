@@ -1,10 +1,10 @@
 'use strict';
 const express = require('express');
-import { config } from '../config';
+import { configs } from '../config/configs';
 import {User} from '../sqldb';
 
 // Passport Configuration
-require('./local/passport').setup(User, config);
+require('./local/passport').setup(User, configs);
 
 var router = express.Router();
 

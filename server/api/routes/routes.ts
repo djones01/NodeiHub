@@ -4,14 +4,15 @@
 
 'use strict';
 
+// Route imports
+import { userRouter } from './user';
+
 import errors from './errors';
 const path = require('path');
 
 export default function(app) {
   // Insert routes below
-  app.use('/api/things', require('./api/thing'));
-  app.use('/api/users', require('./api/user'));
-
+  app.use('/api/users', userRouter);
   app.use('/auth', require('./auth').default);
 
   // All undefined asset or api routes should return a 404

@@ -1,9 +1,10 @@
 import { Router, Request, Response, NextFunction } from 'express';
 import { randomBytes, pbkdf2 } from 'crypto';
 import { sign } from 'jsonwebtoken';
-import { config } from '../../config';
+import { configs } from '../../config/configs';
 
 const loginRouter: Router = Router();
+const serverConfigs = configs.getServerConfig();
 
 const user = {
     hashedPassword: '6fb3a68cb5fe34d0c2c9fc3807c8fa9bc0e7dd10023065ea4233d40a2d6bb4a' +
@@ -24,7 +25,7 @@ loginRouter.post('/signup', function (request: Request, response: Response, next
 
     const salt = randomBytes(128).toString('base64');
 
-    pbkdf2(request.body.password, salt, 10000, length, config.secrets.digest, (err: Error, hash: Buffer) => {
+    pbkdf2(request.body.password, salt, 10000, length, serverConfigs.secrets.digest, (err: Error, hash: Buffer) => {
         response.json({
             hashed: hash.toString('hex'),
             salt: salt
@@ -35,7 +36,7 @@ loginRouter.post('/signup', function (request: Request, response: Response, next
 // login method
 loginRouter.post('/', function (request: Request, response: Response, next: NextFunction) {
 
-    pbkdf2(request.body.password, user.salt, 10000, length, config.secrets.digest, (err: Error, hash: Buffer) => {
+    pbkdf2(request.body.password, user.salt, 10000, length, serverConfigs.secrets.digest, (err: Error, hash: Buffer) => {
         if (err) {
             console.log(err);
         }
@@ -43,7 +44,7 @@ loginRouter.post('/', function (request: Request, response: Response, next: Next
         // check if password is active
         if (hash.toString('hex') === user.hashedPassword) {
 
-            const token = sign({'user': user.username, permissions: []}, config.secrets.secret, { expiresIn: '7d' });
+            const token = sign({'user': user.username, permissions: []}, serverConfigs.secrets.secret, { expiresIn: '7d' });
             response.json({'jwt': token});
 
         } else {
