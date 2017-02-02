@@ -1,13 +1,14 @@
 import { Router, Response, Request, NextFunction } from 'express';
 import { verify } from 'jsonwebtoken';
-import { config } from '../../config';
+import { configs } from '../../config/configs';
 
 const protectedRouter: Router = Router();
+const serverConfig = configs.getServerConfig();
 
 protectedRouter.use((request: Request & { headers: { authorization: string } }, response: Response, next: NextFunction) => {
     const token = request.headers.authorization;
 
-    verify(token, config.secrets.secret, function(tokenError) {
+    verify(token, serverConfig.secrets.secret, function(tokenError) {
         if (tokenError) {
             return response.status(403).json({
                 message: 'Invalid token, please Log in first'

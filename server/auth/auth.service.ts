@@ -1,12 +1,14 @@
 'use strict';
-import { config } from '../config/';
+import { configs } from '../config/configs';
 const jwt = require('jsonwebtoken');
 const expressJwt = require('express-jwt');
 import compose from 'composable-middleware';
 import {User} from '../sqldb';
 
+const serverConfig = configs.getServerConfig();
+
 var validateJwt = expressJwt({
-  secret: config.secrets.session
+  secret: serverConfig.secrets.secret
 });
 
 /**
