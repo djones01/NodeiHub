@@ -18,6 +18,8 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
+        "theme.scss",
+        "../node_modules/@covalent/core/common/platform.scss",
         "../node_modules/normalize.css/normalize.css",
         "styles.css"
       ],
@@ -42,7 +44,7 @@
     }
   },
   "defaults": {
-    "styleExt": "css",
+    "styleExt": "scss",
     "prefixInterfaces": false,
     "inline": {
       "style": false,
