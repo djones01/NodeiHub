@@ -8,8 +8,7 @@ var validatePresenceOf = function(value) {
 
 export default function(sequelize, DataTypes) {
   var User = sequelize.define('User', {
-
-    _id: {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
@@ -37,7 +36,6 @@ export default function(sequelize, DataTypes) {
     },
     provider: DataTypes.STRING,
     salt: DataTypes.STRING
-
   }, {
 
     /**

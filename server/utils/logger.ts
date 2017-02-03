@@ -2,7 +2,7 @@ import * as cluster from "cluster";
 import * as mkdirp from "mkdirp";
 import * as path from "path";
 import {configs} from "../config/configs";
-import {transports, Logger} from "winston";
+const Winston = require("winston");
 import {Request, Response} from "express";
 
 let config = configs.getLoggingConfig();
@@ -12,10 +12,10 @@ if (cluster.isMaster) {
   mkdirp.sync(path.join(config.directory, "../server/logs"));
 }
 
-export const logger = new Logger({
+export const logger = new Winston.Logger({
   transports: [
-    new transports.File(config.file),
-    new transports.Console(config.console)
+    new Winston.transports.File(config.file),
+    new Winston.transports.Console(config.console)
   ],
   exitOnError: false
 });

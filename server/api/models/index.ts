@@ -1,4 +1,4 @@
-import * as cls from "continuation-local-storage";
+const cls = require("continuation-local-storage");
 import * as fs from "fs";
 import * as path from "path";
 import {configs} from "../../config/configs";
@@ -6,7 +6,7 @@ import {logger} from "../../utils/logger";
 import {Sequelize} from "sequelize";
 
 export interface SequelizeModels {
-  Product: Sequelize.Model<UserInstance, UserAttributes>;
+  User: Sequelize.Model<UserInstance, UserAttributes>;
 }
 
 class Database {

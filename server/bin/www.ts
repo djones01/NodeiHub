@@ -5,23 +5,19 @@
  */
 
 import { app } from '../app';
-<<<<<<< HEAD
-import { config } from '../config/';
-=======
-import { configs } from '../config';
->>>>>>> origin/master
+
+import { configs } from '../config/configs';
+
 import * as http from 'http';
 
 /**
  * Get port from environment and store in Express.
  */
-<<<<<<< HEAD
-const port = normalizePort(process.env.PORT || config.serverPort);
-=======
+
 let serverConfig = configs.getServerConfig();
 
 const port = normalizePort(process.env.PORT || serverConfig.port);
->>>>>>> origin/master
+
 app.set('port', port);
 
 /**
