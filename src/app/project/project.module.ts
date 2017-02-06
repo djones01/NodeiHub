@@ -17,7 +17,8 @@ import { ProjectComponent } from './project.component';
     ProjectCardComponent,
     ProjectDetailComponent,
     ProjectEditComponent,
-    ProjectListComponent
+    ProjectListComponent,
+    ProjectComponent
   ]
 })
 export class ProjectModule { }

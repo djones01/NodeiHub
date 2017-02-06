@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 
+// Primeng module imports 
+import { CalendarModule, DataTableModule, DialogModule, ConfirmDialogModule, ConfirmationService, PanelModule, MenuModule } from 'primeng/primeng';
+import { SidebarModule } from 'ng-sidebar';
+
 import { ModalComponent, ModalDirectivesDirective } from './modal/modal.component';
 import { CommonModule } from '@angular/common';
-import { TopNavigationComponent } from './top-navigation/top-navigation.component';
+import { MainNavigationComponent } from './main-navigation/main-navigation.component';
 import { RouterModule } from '@angular/router';
 import { SubNavigationComponent } from './sub-navigation/sub-navigation.component';
 import { NotesComponent } from './notes/notes.component';
@@ -15,7 +19,7 @@ import { LoaderComponent } from './loader/loader.component';
 @NgModule({
   declarations: [
     ModalComponent,
-    TopNavigationComponent,
+    MainNavigationComponent,
     SubNavigationComponent,
     ModalDirectivesDirective,
     CardComponent,
@@ -28,18 +32,26 @@ import { LoaderComponent } from './loader/loader.component';
     CommonModule,
     RouterModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CalendarModule, 
+    DataTableModule,
+    DialogModule, 
+    ConfirmDialogModule,
+    PanelModule,
+    MenuModule,
+    SidebarModule
   ],
   exports: [
     ModalComponent,
     ModalDirectivesDirective,
-    TopNavigationComponent,
+    MainNavigationComponent,
     LoaderComponent,
     CardComponent,
     ButtonComponent,
     InputComponent,
     SubNavigationComponent,
     NotesComponent
-  ]
+  ],
+  providers: [ConfirmationService]
 })
 export class SharedModule {}

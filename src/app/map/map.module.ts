@@ -8,7 +8,6 @@ import { MapCardComponent } from './card/map-card.component';
 import { MapDetailComponent } from './detail/map-detail.component';
 import { MapComponent } from './map.component';
 
-
 @NgModule({
   imports: [
     CommonModule,
@@ -18,7 +17,8 @@ import { MapComponent } from './map.component';
     MapCardComponent,
     MapDetailComponent,
     MapEditComponent,
-    MapListComponent
+    MapListComponent,
+    MapComponent
   ]
 })
 export class MapModule { }

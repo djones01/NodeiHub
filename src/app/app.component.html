@@ -1,4 +1,5 @@
-<app-ui-top-navigation></app-ui-top-navigation>
+<!-- 
+<app-ui-main-navigation></app-ui-main-navigation>
 
 <app-ui-sub-navigation [title]="(observable$ | async)?.title" [description]="(observable$ | async)?.text"></app-ui-sub-navigation>
 
@@ -7,3 +8,7 @@
 </div>
 
 <router-outlet name='modal'></router-outlet>
+-->
+
+<router-outlet></router-outlet>
+<app-ui-loader [visible]="loading"></app-ui-loader>

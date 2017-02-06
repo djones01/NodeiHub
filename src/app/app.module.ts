@@ -4,7 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { routing } from './app.router';
+import { AppRoutingModule } from './app-routing.module';
+import { HomeModule } from './home/home.module';
+import { LoginModule } from './login/login.module';
+
 import { effects, store, instrumentation } from './store';
 import { SharedModule } from './shared/shared.module';
 import { WeatherService } from './weather/weather.service';
@@ -18,9 +21,11 @@ import { WeatherService } from './weather/weather.service';
     SharedModule,
     FormsModule,
     HttpModule,
+    HomeModule,
+    LoginModule,
     store,
     effects,
-    routing,
+    AppRoutingModule,
     instrumentation
   ],
   providers: [
