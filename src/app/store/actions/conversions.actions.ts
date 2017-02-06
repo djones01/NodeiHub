@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Conversion } from '../models/format';
+import { Conversion } from '../models/conversion';
 import { type } from '../type-util';
 
 
@@ -10,9 +10,9 @@ export const ActionTypes = {
   REMOVE_CONVERSION:          type('[Conversions] Remove Conversion'),
   REMOVE_CONVERSION_SUCCESS:  type('[Conversions] Remove Conversion Success'),
   REMOVE_CONVERSION_FAIL:     type('[Conversions] Remove Conversion Fail'),
-  LOAD:                    type('[Conversions] Load'),
-  LOAD_SUCCESS:            type('[Conversions] Load Success'),
-  LOAD_FAIL:               type('[Conversions] Load Fail'),
+  LOAD:                       type('[Conversions] Load'),
+  LOAD_SUCCESS:               type('[Conversions] Load Success'),
+  LOAD_FAIL:                  type('[Conversions] Load Fail'),
 };
 
 

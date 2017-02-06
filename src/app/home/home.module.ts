@@ -8,6 +8,8 @@ import { OverviewComponent } from './overview/overview.component';
 
 // third party imports
 import { PanelMenuModule, MenuItem } from 'primeng/primeng';
+import { SidebarModule } from 'ng-sidebar';
+
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
@@ -15,6 +17,7 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     HomeRoutingModule,
     PanelMenuModule,
+    SidebarModule,
     SharedModule
   ],
   declarations: [HomeComponent, AboutComponent, OverviewComponent]

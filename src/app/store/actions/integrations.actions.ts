@@ -10,9 +10,9 @@ export const ActionTypes = {
   REMOVE_INTEGRATION:          type('[Integrations] Remove Integration'),
   REMOVE_INTEGRATION_SUCCESS:  type('[Integrations] Remove Integration Success'),
   REMOVE_INTEGRATION_FAIL:     type('[Integrations] Remove Integration Fail'),
-  LOAD:                    type('[Integrations] Load'),
-  LOAD_SUCCESS:            type('[Integrations] Load Success'),
-  LOAD_FAIL:               type('[Integrations] Load Fail'),
+  LOAD:                        type('[Integrations] Load'),
+  LOAD_SUCCESS:                type('[Integrations] Load Success'),
+  LOAD_FAIL:                   type('[Integrations] Load Fail'),
 };
 
 

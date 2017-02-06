@@ -1,31 +1,31 @@
 import { Action } from '@ngrx/store';
-import { Project } from '../models/project';
+import { Integration } from '../models/integration';
 import { Conversion } from '../models/conversion';
 import { IntegrationSchedule } from '../models/integration-schedule';
 import { type } from '../type-util';
 
 
 export const ActionTypes = {
-  ADD_CONVERSION:                               type('[Project] Add Conversion'),
-  ADD_CONVERSION_SUCCESS:                       type('[Project] Add Conversion Success'),
-  ADD_CONVERSION_FAIL:                          type('[Project] Add Conversion Fail'),
-  ADD_INTEGRATION_SCHEDULE:                     type('[Project] Add Integration Schedule'),
-  ADD_INTEGRATION_SCHEDULE_SUCCESS:             type('[Project] Add Integration Schedule Success'),
-  ADD_INTEGRATION_SCHEDULE_FAIL:                type('[Project] Add Integration Schedule Fail'),
-  REMOVE_CONVERSION:                            type('[Project] Remove Conversion'),
-  REMOVE_CONVERSION_SUCCESS:                    type('[Project] Remove Conversion Success'),
-  REMOVE_CONVERSION_FAIL:                       type('[Project] Remove Conversion Fail'),
-  REMOVE_INTEGRATION_SCHEDULE:                  type('[Project] Remove Integration Schedule'),
-  REMOVE_INTEGRATION_SCHEDULE_SUCCESS:          type('[Project] Remove Integration Schedule Success'),
-  REMOVE_INTEGRATION_SCHEDULE_FAIL:             type('[Project] Remove Integration Schedule Fail'),
-  LOAD:                                         type('[Project] Load'),
-  LOAD_SUCCESS:                                 type('[Project] Load Success'),
-  LOAD_FAIL:                                    type('[Project] Load Fail'),
+  ADD_CONVERSION:                               type('[Integration] Add Conversion'),
+  ADD_CONVERSION_SUCCESS:                       type('[Integration] Add Conversion Success'),
+  ADD_CONVERSION_FAIL:                          type('[Integration] Add Conversion Fail'),
+  ADD_INTEGRATION_SCHEDULE:                     type('[Integration] Add Integration Schedule'),
+  ADD_INTEGRATION_SCHEDULE_SUCCESS:             type('[Integration] Add Integration Schedule Success'),
+  ADD_INTEGRATION_SCHEDULE_FAIL:                type('[Integration] Add Integration Schedule Fail'),
+  REMOVE_CONVERSION:                            type('[Integration] Remove Conversion'),
+  REMOVE_CONVERSION_SUCCESS:                    type('[Integration] Remove Conversion Success'),
+  REMOVE_CONVERSION_FAIL:                       type('[Integration] Remove Conversion Fail'),
+  REMOVE_INTEGRATION_SCHEDULE:                  type('[Integration] Remove Integration Schedule'),
+  REMOVE_INTEGRATION_SCHEDULE_SUCCESS:          type('[Integration] Remove Integration Schedule Success'),
+  REMOVE_INTEGRATION_SCHEDULE_FAIL:             type('[Integration] Remove Integration Schedule Fail'),
+  LOAD:                                         type('[Integration] Load'),
+  LOAD_SUCCESS:                                 type('[Integration] Load Success'),
+  LOAD_FAIL:                                    type('[Integration] Load Fail'),
 };
 
 
 /**
- * Add Conversion to Project Actions
+ * Add Conversion to Integration Actions
  */
 export class AddConversionAction implements Action {
   type = ActionTypes.ADD_CONVERSION;
@@ -46,7 +46,7 @@ export class AddConversionFailAction implements Action {
 }
 
 /**
- * Add Integration Schedule to Project Actions
+ * Add Integration Schedule to Integration Actions
  */
 export class AddIntegrationScheduleAction implements Action {
   type = ActionTypes.ADD_INTEGRATION_SCHEDULE;
@@ -67,7 +67,7 @@ export class AddIntegrationScheduleFailAction implements Action {
 }
 
 /**
- * Remove Conversion from Project Actions
+ * Remove Conversion from Integration Actions
  */
 export class RemoveConversionAction implements Action {
   type = ActionTypes.REMOVE_CONVERSION;
@@ -88,7 +88,7 @@ export class RemoveConversionFailAction implements Action {
 }
 
 /**
- * Remove Integration Schedule from Project Actions
+ * Remove Integration Schedule from Integration Actions
  */
 export class RemoveIntegrationScheduleAction implements Action {
   type = ActionTypes.REMOVE_CONVERSION;
@@ -109,7 +109,7 @@ export class RemoveIntegrationScheduleFailAction implements Action {
 }
 
 /**
- * Load Project Actions
+ * Load Integration Actions
  */
 export class LoadAction implements Action {
   type = ActionTypes.LOAD;

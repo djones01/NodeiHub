@@ -37,32 +37,47 @@ export class MainNavigationComponent implements OnInit {
                 ]
             },
             {
-                label: "Data Objects",
+                label: "Integrations",
                 items: [
                     {
                         label: "View All",
                         icon: "fa-binoculars",
-                        routerLink: ["/pages/data-object"]
+                        routerLink: ["/pages/integration"]
                     },
                     {
                         label: "New",
                         icon: "fa-plus",
-                        routerLink: ["/pages/data-object/edit"]
+                        routerLink: ["/pages/integration/edit"]
                     }
                 ]
             },
             {
-                label: "Maps",
+                label: "Conversions",
                 items: [
                     {
                         label: "View All",
                         icon: "fa-binoculars",
-                        routerLink: ["/pages/map"]
+                        routerLink: ["/pages/conversion"]
                     },
                     {
                         label: "New",
                         icon: "fa-plus",
-                        routerLink: ["/pages/map/edit"]
+                        routerLink: ["/pages/conversion/edit"]
+                    }
+                ]
+            },
+            {
+                label: "Formats",
+                items: [
+                    {
+                        label: "View All",
+                        icon: "fa-binoculars",
+                        routerLink: ["/pages/format"]
+                    },
+                    {
+                        label: "New",
+                        icon: "fa-plus",
+                        routerLink: ["/pages/format/edit"]
                     }
                 ]
             },

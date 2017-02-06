@@ -10,9 +10,9 @@ export const ActionTypes = {
   REMOVE_FORMAT:          type('[Formats] Remove Format'),
   REMOVE_FORMAT_SUCCESS:  type('[Formats] Remove Format Success'),
   REMOVE_FORMAT_FAIL:     type('[Formats] Remove Format Fail'),
-  LOAD:                    type('[Formats] Load'),
-  LOAD_SUCCESS:            type('[Formats] Load Success'),
-  LOAD_FAIL:               type('[Formats] Load Fail'),
+  LOAD:                   type('[Formats] Load'),
+  LOAD_SUCCESS:           type('[Formats] Load Success'),
+  LOAD_FAIL:              type('[Formats] Load Fail'),
 };
 
 
