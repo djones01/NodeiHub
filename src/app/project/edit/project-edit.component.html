@@ -1,1 +1,30 @@
-
+<form [formGroup]="form" (onSubmit)="onSubmit(form.value)">
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" formControlName="name" placeholder="Project Name">
+        <small *ngIf="!form.controls.name.valid" class="text-danger">
+            Project Name is required
+        </small>
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <textarea type="text" class="form-control" formControlName="description" placeholder="Project Description"></textarea>
+        <small *ngIf="!form.controls.description.valid" class="text-danger">
+            Project Description is required
+        </small>
+    </div>
+    <div class="form-group">
+        <label>Type</label>
+        <select type="text" class="form-control" formControlName="type">
+            <option value="" selected disabled>Select Project Type</option>
+            <option value="enhancement">Enhancement</option>
+            <option value="upgrade">Upgrade</option>
+            <option value="new">New Installation</option>
+            <option value="retrofit">Retrofit</option>
+        </select>
+        <small *ngIf="!form.controls.type.valid" class="text-danger">
+            Project Type is required
+        </small>
+    </div>
+    <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save</button>
+</form>

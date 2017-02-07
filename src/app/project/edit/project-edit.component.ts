@@ -1,5 +1,5 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { Validators, FormGroup, FormArray, FormBuilder } from '@angular/forms';
+import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-project-edit',
@@ -7,17 +7,17 @@ import { Validators, FormGroup, FormArray, FormBuilder } from '@angular/forms';
   styleUrls: ['./project-edit.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProjectEditComponent implements OnInit {
-  public projectForm: FormGroup;
-
-  constructor(private fb: FormBuilder ) { }
-
-  ngOnInit() {
-    this.projectForm = this.fb.group({
-      name: ['',Validators.required],
-      description: ['', Validators.required],
-      type: ['', Validators.required]
-    });
+export class ProjectEditComponent {
+  @Input()
+  public form: FormGroup;
+  @Input()
+  set data(v) {
+    if (v) {
+      this.form.patchValue(v);
+    }
+  };
+  @Output() submitted = new EventEmitter();
+  onSubmit(v: any){
+    this.submitted.emit(v);
   }
-
 }

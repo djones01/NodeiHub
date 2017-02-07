@@ -10,7 +10,11 @@ export const routes: Routes = [
     { path: 'pages', component: HomeComponent, children: [
         { path: '', redirectTo: 'overview', pathMatch: 'full' },
         { path: 'overview', component: OverviewComponent },
-        { path: 'about', component: AboutComponent }
+        { path: 'about', component: AboutComponent },
+        { path: 'projects', loadChildren: 'app/project/project.module#ProjectModule' },
+        { path: 'integrations', loadChildren: 'app/integration/integration.module#IntegrationModule' },
+        { path: 'conversions', loadChildren: 'app/conversion/conversion.module#ConversionModule' },
+        { path: 'formats', loadChildren: 'app/format/format.module#FormatModule' }
     ]}   
 ];
 

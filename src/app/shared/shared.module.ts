@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 
-// Primeng module imports 
-import { CalendarModule, DataTableModule, DialogModule, ConfirmDialogModule, ConfirmationService, PanelModule, MenuModule } from 'primeng/primeng';
+import { MenuModule } from 'primeng/primeng';
 import { SidebarModule } from 'ng-sidebar';
 
 import { ModalComponent, ModalDirectivesDirective } from './modal/modal.component';
@@ -33,13 +32,8 @@ import { LoaderComponent } from './loader/loader.component';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    CalendarModule, 
-    DataTableModule,
-    DialogModule, 
-    ConfirmDialogModule,
-    PanelModule,
-    MenuModule,
-    SidebarModule
+    SidebarModule,
+    MenuModule
   ],
   exports: [
     ModalComponent,
@@ -51,7 +45,6 @@ import { LoaderComponent } from './loader/loader.component';
     InputComponent,
     SubNavigationComponent,
     NotesComponent
-  ],
-  providers: [ConfirmationService]
+  ]
 })
 export class SharedModule {}
