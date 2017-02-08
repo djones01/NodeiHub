@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-project-card',
@@ -6,11 +6,11 @@ import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter
   styleUrls: ['./project-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProjectCardComponent {
-  @Input() data: any;
-  @Output() selectedItem = new EventEmitter();
+export class ProjectCardComponent implements OnInit {
 
-  selectItem(){
-    this.selectedItem.emit(this.data);
+  constructor() { }
+
+  ngOnInit() {
   }
+
 }

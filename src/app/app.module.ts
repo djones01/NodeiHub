@@ -8,9 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeModule } from './home/home.module';
 import { LoginModule } from './login/login.module';
 
-import { effects, store, instrumentation } from './store';
 import { SharedModule } from './shared/shared.module';
-import { WeatherService } from './weather/weather.service';
 
 @NgModule({
   declarations: [
@@ -23,13 +21,7 @@ import { WeatherService } from './weather/weather.service';
     HttpModule,
     HomeModule,
     LoginModule,
-    store,
-    effects,
-    AppRoutingModule,
-    instrumentation
-  ],
-  providers: [
-    WeatherService
+    AppRoutingModule
   ],
   bootstrap: [
     AppComponent

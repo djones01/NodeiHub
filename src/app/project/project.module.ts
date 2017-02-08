@@ -14,6 +14,7 @@ import { ProjectComponent } from './project.component';
 
 // Containers
 import { ProjectEditMainComponent } from './containers/project-edit-main/project-edit-main.component';
+import { ProjectListMainComponent } from './containers/project-list-main/project-list-main.component';
 
 @NgModule({
   imports: [
@@ -30,7 +31,8 @@ import { ProjectEditMainComponent } from './containers/project-edit-main/project
     ProjectEditComponent,
     ProjectListComponent,
     ProjectComponent,
-    ProjectEditMainComponent
+    ProjectEditMainComponent,
+    ProjectListMainComponent
   ]
 })
 export class ProjectModule { }
