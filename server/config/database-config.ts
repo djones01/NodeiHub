@@ -15,7 +15,7 @@ export const databaseConfig: DatabaseConfig = {
   username: "",
   password: "",
   database: "ihubdb",
-  uri: "sqlite://",
+  uri: "localhost",
   port: 3306,
   dialect: "mysql",
   logging: true,

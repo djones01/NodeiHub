@@ -3,7 +3,10 @@ import * as fs from "fs";
 import * as path from "path";
 import {configs} from "../../config/configs";
 import {logger} from "../../utils/logger";
-import {Sequelize} from "sequelize";
+import * as Sequelize from "sequelize";
+
+// import interfaces
+
 
 export interface SequelizeModels {
   User: Sequelize.Model<UserInstance, UserAttributes>;
@@ -12,7 +15,7 @@ export interface SequelizeModels {
 class Database {
   private _basename: string;
   private _models: SequelizeModels;
-  private _sequelize: Sequelize;
+  private _sequelize: Sequelize.Sequelize;
 
   constructor() {
     this._basename = path.basename(module.filename);

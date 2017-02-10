@@ -1,22 +1,25 @@
 'use strict';
 
+import { UserAttributes, UserInstance } from "./interfaces/user-interface";
+import * as Sequelize from "sequelize";
 const crypto = require('crypto');
 
 var validatePresenceOf = function(value) {
   return value && value.length;
 };
 
-export default function(sequelize, DataTypes) {
-  var User = sequelize.define('User', {
+export default function(sequelize, DataTypes):
+  Sequelize.Model<UserInstance, UserAttributes> {
+  let User = sequelize.define('User', {
     id: {
-      type: DataTypes.INTEGER,
+      type: Sequelize.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
-    name: DataTypes.STRING,
+    name: Sequelize.STRING(128),
     email: {
-      type: DataTypes.STRING,
+      type: Sequelize.STRING(128),
       unique: {
         msg: 'The specified email address is already in use.'
       },
@@ -25,22 +28,24 @@ export default function(sequelize, DataTypes) {
       }
     },
     role: {
-      type: DataTypes.STRING,
+      type: Sequelize.STRING(128),
       defaultValue: 'user'
     },
     password: {
-      type: DataTypes.STRING,
+      type: Sequelize.STRING(128),
       validate: {
         notEmpty: true
       }
     },
-    provider: DataTypes.STRING,
-    salt: DataTypes.STRING
+    provider: Sequelize.STRING(128),
+    salt: Sequelize.STRING(128)
   }, {
-
-    /**
-     * Virtual Getters
-     */
+    "tableName": "user",
+    "timestamps": true,
+    "createdAt": "created_at",
+    "updatedAt": "updated_at"
+  },
+  {
     getterMethods: {
       // Public profile information
       profile() {
@@ -58,10 +63,6 @@ export default function(sequelize, DataTypes) {
         };
       }
     },
-
-    /**
-     * Pre-save hooks
-     */
     hooks: {
       beforeBulkCreate(users, fields, fn) {
         var totalUpdated = 0;
@@ -87,19 +88,7 @@ export default function(sequelize, DataTypes) {
         fn();
       }
     },
-
-    /**
-     * Instance Methods
-     */
     instanceMethods: {
-      /**
-       * Authenticate - check if the passwords are the same
-       *
-       * @param {String} password
-       * @param {Function} callback
-       * @return {Boolean}
-       * @api public
-       */
       authenticate(password, callback) {
         if(!callback) {
           return this.password === this.encryptPassword(password);
@@ -118,15 +107,6 @@ export default function(sequelize, DataTypes) {
           }
         });
       },
-
-      /**
-       * Make salt
-       *
-       * @param {Number} [byteSize] - Optional salt byte size, default to 16
-       * @param {Function} callback
-       * @return {String}
-       * @api public
-       */
       makeSalt(byteSize, callback) {
         var defaultByteSize = 16;
 
@@ -150,15 +130,6 @@ export default function(sequelize, DataTypes) {
           return callback(null, salt.toString('base64'));
         });
       },
-
-      /**
-       * Encrypt password
-       *
-       * @param {String} password
-       * @param {Function} callback
-       * @return {String}
-       * @api public
-       */
       encryptPassword(password, callback) {
         if(!password || !this.salt) {
           return callback ? callback(null) : null;
@@ -181,14 +152,6 @@ export default function(sequelize, DataTypes) {
             return callback(null, key.toString('base64'));
           });
       },
-
-      /**
-       * Update password field
-       *
-       * @param {Function} fn
-       * @return {String}
-       * @api public
-       */
       updatePassword(fn) {
         // Handle new/update passwords
         if(!this.password) return fn(null);

@@ -51,6 +51,7 @@
     "@types/node-uuid": "^0.0.28",
     "@types/passport": "^0.3.2",
     "@types/passport-local": "^1.0.29",
+    "@types/sequelize": "^4.0.40",
     "angular-cli": "1.0.0-beta.26",
     "body-parser": "~1.16.0",
     "bootstrap": "^4.0.0-alpha.6",
